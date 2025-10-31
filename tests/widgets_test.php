@@ -163,7 +163,6 @@ final class widgets_test extends \advanced_testcase {
         $teacher = self::getDataGenerator()->create_and_enrol($this->course1, 'editingteacher');
         self::getDataGenerator()->enrol_user($user->id, $this->course2->id);
         self::getDataGenerator()->enrol_user($user->id, $this->course3->id);
-        $this->setUser($user);
 
         $assign = $this->getDataGenerator()->create_module('assign', ['course' => $this->course1->id],
             ['completion' => 1]);
@@ -183,6 +182,8 @@ final class widgets_test extends \advanced_testcase {
 
         $block = $this->create_user_block('My learning', 'block_dash\local\widget\mylearning\mylearning_widget');
         $context1 = \context_course::instance($this->course1->id);
+
+        $this->setUser($user);
 
         $widget = new \block_dash\local\widget\mylearning\mylearning_widget($context1);
         $widget->set_block_instance($block);
