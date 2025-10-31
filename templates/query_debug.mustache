@@ -31,15 +31,15 @@
     require(['jquery', 'core/modal_factory', 'core/modal_events', 'core/modal'], function($, ModalFactory, Events, Modal) {
         var trigger = $('#query-debug-modal-{{uniqueid}}-trigger');
         var body = '<p>' + trigger.data('body') + '</p>';
-
+        var promise;
         if ((typeof Modal.registerModalType !== 'undefined')) {
-            var promise = Modal.create({
+            promise = Modal.create({
                 title: '{{#str}}querydebug, block_dash{{/str}}',
                 body: body,
                 large: true
             }, trigger);
         } else {
-            var promise = ModalFactory.create({
+            promise = ModalFactory.create({
                 title: '{{#str}}querydebug, block_dash{{/str}}',
                 body: body,
                 type: ModalFactory.types.SAVE_CANCEL,
