@@ -28,7 +28,8 @@
 </button>
 
 {{#js}}
-    require(['jquery', 'core/modal_factory', 'core/modal_events', 'core/modal'], function($, ModalFactory, Events, Modal) {
+    require(['jquery', 'core/modal_factory', 'core/modal_events', 'core/modal', 'core/notification'],
+        function($, ModalFactory, Events, Modal, Notification) {
         var trigger = $('#query-debug-modal-{{uniqueid}}-trigger');
         var body = '<p>' + trigger.data('body') + '</p>';
         var promise;
@@ -55,6 +56,6 @@
                 var params = JSON.stringify(trigger.data('params'), null, 2);
                 $(this).find('.modal-body').find('pre').html(params);
             });
-        });
+        }).catch(Notification.exception);
     });
 {{/js}}
