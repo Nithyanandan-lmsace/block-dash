@@ -96,7 +96,7 @@ class behat_block_dash extends behat_base {
             ['Appearance > Default Dashboard page']);
         $this->execute('behat_block_dash::i_turn_dash_block_editing_mode_on', []);
         $this->execute('behat_blocks::i_add_the_block', ["Dash"]);
-        $this->execute('behat_general::i_click_on_in_the', [$datasource, 'text', 'section.block_dash.block', 'css_element']);
+        $this->execute('behat_general::i_click_on_in_the', [$datasource, 'text', 'New Dash', 'block']);
     }
 
     /**
@@ -112,7 +112,7 @@ class behat_block_dash extends behat_base {
         $this->execute("behat_blocks::i_open_the_blocks_action_menu", $this->escape($blockname));
 
         $this->execute('behat_general::i_click_on_in_the',
-            ["Preference", "link", $this->escape($blockname), "block"]
+            ["Preferences", "link", $this->escape($blockname), "block"]
         );
     }
 

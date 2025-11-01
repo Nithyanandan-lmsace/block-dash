@@ -93,6 +93,7 @@ class grouped_strategy implements data_strategy_interface {
                     continue;
                 }
 
+
                 $row->add_data(new field($alias, $fielddefinition->transform_data($record->$alias, $fullrecord),
                     $fielddefinition->get_visibility(), $fielddefinition->get_title()));
             }
